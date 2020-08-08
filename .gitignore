@@ -1,4 +1,6 @@
 env
 **/*.pyc
-node_modules/
-build
+*.log
+*.pot
+*.pyc
+__pycache__/
