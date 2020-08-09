@@ -15,7 +15,7 @@ SECRET_KEY = 's#-_mq&282ft$otdudrecs1ybimzar$a^zlu6r@5w40e047mjq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1","localhost"]
+ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1",]
 
 
 # Application definition
@@ -110,9 +110,11 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+CORS_ORIGIN_ALLOW_ALL = False
+
 CORS_ORIGIN_WHITELIST = [
-'https://veasystem.online',
-]
+    'http://localhost:8000',]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
