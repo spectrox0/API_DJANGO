@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'graphene_django',
     'corsheaders',
     'api'
 ]
@@ -115,10 +114,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-
-GRAPHENE = {
-    "SCHEMA": "api.schema.schema"
-}
 
 django_heroku.settings(locals())
 ## CORS_ORIGIN_ALLOW_ALL = False
