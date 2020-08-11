@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 's#-_mq&282ft$otdudrecs1ybimzar$a^zlu6r@5w40e047mjq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1",]
 
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    "graphene_django",
     'api'
 ]
 
@@ -114,6 +115,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
+
+GRAPHENE = {
+    "SCHEMA": "api.schema.schema"
+}
 
 django_heroku.settings(locals())
 ## CORS_ORIGIN_ALLOW_ALL = False
