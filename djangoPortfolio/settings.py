@@ -1,6 +1,6 @@
-import os
+
 from pathlib import Path
-import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -14,7 +14,10 @@ SECRET_KEY = 's#-_mq&282ft$otdudrecs1ybimzar$a^zlu6r@5w40e047mjq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1",]
+
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -25,13 +28,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    "graphene_django",
     'api'
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,9 +75,8 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
+import dj_database_url
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 
@@ -114,18 +117,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 MEDIA_URL = '/images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ## CORS_ORIGIN_ALLOW_ALL = False
 
