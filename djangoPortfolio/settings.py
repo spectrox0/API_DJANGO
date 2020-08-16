@@ -16,9 +16,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1",'localhost']
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +70,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 
