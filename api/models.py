@@ -23,5 +23,5 @@ class Image(models.Model):
     image = CloudinaryField('image', null=True, blank=True)
     work = models.ForeignKey(Work, related_name="images", null=True, on_delete=models.CASCADE)
     def __str__(self):
-        return self.image
+        return self.image.public_id
 
