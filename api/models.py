@@ -20,8 +20,8 @@ class Work(models.Model):
 
 
 class Image(models.Model):
-    url = models.CharField(max_length=255)
+    image = CloudinaryField('image', null=True, blank=True)
     work = models.ForeignKey(Work, related_name="images", null=True, on_delete=models.CASCADE)
     def __str__(self):
-        return self.url
+        return self.image.url
 
