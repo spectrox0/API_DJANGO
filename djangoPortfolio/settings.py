@@ -121,9 +121,9 @@ STATIC_URL = '/static/'
 
 
 django_heroku.settings(locals())
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
-    'https://alevelazco.com', 'http://localhost:3000', ]
+    'https://alevelazco.com', 'http://localhost:3000', 'https://portfolio-alejandro-velazco.vercel.app', ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
