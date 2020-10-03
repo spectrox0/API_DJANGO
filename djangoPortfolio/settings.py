@@ -1,15 +1,15 @@
+import cloudinary
 import django_heroku
 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-import cloudinary
 
-cloudinary.config( 
-  cloud_name = "dh4qxznuz", 
-  api_key = "837746455589736", 
-  api_secret = "dh5SlmKpA3Y7asqajUqtDiFqCb0" 
+cloudinary.config(
+    cloud_name="dh4qxznuz",
+    api_key="837746455589736",
+    api_secret="dh5SlmKpA3Y7asqajUqtDiFqCb0"
 )
 
 # Quick-start development settings - unsuitable for production
@@ -21,7 +21,7 @@ SECRET_KEY = 's#-_mq&282ft$otdudrecs1ybimzar$a^zlu6r@5w40e047mjq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1",]
+ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1", ]
 
 
 # Application definition
@@ -82,8 +82,6 @@ DATABASES = {
 }
 
 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -117,16 +115,15 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
 
 
 django_heroku.settings(locals())
-## CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = [
-    'https://alevelazco.com','http://localhost:3000,',]
+    'https://alevelazco.com', 'http://localhost:3000,', ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
