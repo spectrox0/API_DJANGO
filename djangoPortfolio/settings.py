@@ -127,6 +127,6 @@ django_heroku.settings(locals())
 ## CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
-    'https://veasystem.online',]
+    'https://alevelazco.com','http://localhost:3000,',]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
