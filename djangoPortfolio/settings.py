@@ -1,6 +1,9 @@
 import cloudinary
 import django_heroku
-
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -15,13 +18,13 @@ cloudinary.config(
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's#-_mq&282ft$otdudrecs1ybimzar$a^zlu6r@5w40e047mjq'
+# SECURITY RNING: keep the secret key used in production secret!
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('ENV') == 'development'
 
-ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1", ]
+ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1" ]
 
 
 # Application definition
@@ -114,6 +117,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+#SECURE_SSL_REDIRECT = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
