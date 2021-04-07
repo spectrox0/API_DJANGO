@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import WorkSerializer, CategorySerializer ,ImageSerializer
 from .models import Work, Category, Image
+from django.http import JsonResponse
+from django.middleware.csrf import get_token
 # Create your views here.
 
 
@@ -26,3 +28,11 @@ def get_images(request):
     print(serializer.data)
     return Response(serializer.data)
     
+
+
+# todolist/views.py
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
+
+def ping(request):
+    return JsonResponse({'result': 'OK'})
