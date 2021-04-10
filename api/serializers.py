@@ -6,13 +6,17 @@ from .models import Work, Category, Image, Skill, Translate
 class TranslateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Translate
-        fields = '__all__'
+        fields = ('es', 'en')
+
 
 class WorkSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField(many=False)
     skills = serializers.StringRelatedField(many=True)
     images = serializers.StringRelatedField(many=True)
     description = TranslateSerializer(many=False)
+    image = serializers.SlugRelatedField(slug_field="public_id",
+                                         read_only=True,
+                                         many=False)
 
     class Meta:
         model = Work
