@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from .models import Work, Category, Image, Skill
 
 
@@ -6,6 +7,7 @@ class WorkSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField(many=False)
     skills = serializers.StringRelatedField(many=True)
     images = serializers.StringRelatedField(many=True)
+    description = serializers.ModelSerializer(many=False)
 
     class Meta:
         model = Work
