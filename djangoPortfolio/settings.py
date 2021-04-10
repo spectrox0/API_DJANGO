@@ -1,6 +1,7 @@
 import cloudinary
 import django_heroku
 import environ
+
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
@@ -24,8 +25,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('ENV') == 'development'
 
-ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1" ]
-
+ALLOWED_HOSTS = ["django-api-portfolio.herokuapp.com", "127.0.0.1"]
 
 # Application definition
 
@@ -73,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoPortfolio.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -83,7 +82,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -103,7 +101,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -117,12 +114,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-#SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = '/static/'
-
 
 django_heroku.settings(locals())
 CORS_ORIGIN_ALLOW_ALL = False
