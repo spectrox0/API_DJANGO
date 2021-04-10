@@ -5,7 +5,7 @@ from pathlib import Path
 
 # Initialise environment variables
 env = environ.Env(
-    DEBUG=(str, "production")
+    ENV=(str, "production")
 )
 environ.Env.read_env()
 
